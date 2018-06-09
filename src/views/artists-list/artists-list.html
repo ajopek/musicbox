@@ -1,0 +1,12 @@
+<template>
+  <requre  from="./loader.css"></requre> 
+
+  <div if.bind="listLoaded"
+    <li repeat.for="artist of artistsList">
+      <span> ${artist.name} </span>
+    </li>  
+  </div>
+  <div if.bind="awaitingResults">
+      Loading ...
+  </div>
+</template>  
