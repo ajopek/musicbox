@@ -3,26 +3,28 @@
       bio:
       ${artistBio}
       albums:
-      <li repeat.for="album of albums">
-        <button click.delegate="$parent.select(album.name)"> ${album.name} </button>
-        <div show.bind="album.name === selectedAlbum">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="media">
-                          <div class="media-left">
-                              <!--<img class="media-object" src="./asd.png" alt="zdjecie">-->
-                          </div>
-                          <div class="media-body">
-                            <h4 class="media-heading">Data</h4>
-                            info.
+      <div class="list-group">
+        <li repeat.for="album of albums">
+          <button type="button" class="list-group-item list-group-item-action ${$parent.album.name === selectedAlbum ? 'active' : ''}" click.delegate="$parent.select(album.name)"> ${album.name} </button>
+          <div show.bind="album.name === selectedAlbum">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-md-6">
+                          <div class="media">
+                            <div class="media-left">
+                                <!--<img class="media-object" src="./asd.png" alt="zdjecie">-->
+                            </div>
+                            <div class="media-body">
+                              <h4 class="media-heading">Data</h4>
+                              info.
+                            </div>
                           </div>
                         </div>
-                      </div>
-                </div>
-            </div>
-        </div>
-      </li>
+                  </div>
+              </div>
+          </div>
+        </li>
+      </div>
     </div>
     <button click.delegate="back()"> Back to search </button>
 </template>
