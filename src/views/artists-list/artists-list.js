@@ -24,7 +24,7 @@ export class ArtistsList {
                    this.currentPage = page;
                    this.awaitingResults = false;
                    this.listLoaded = true;
-                   console.log(data.results['opensearch:itemsPerPage']);
+                   console.log(this.artistsList[2].image[2]['#text']);
                  });
   }
 
