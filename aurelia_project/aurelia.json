@@ -80,6 +80,19 @@
         "name": "aurelia-fetch-client",
         "path": "../node_modules/aurelia-fetch-client/dist/amd",
         "main": "aurelia-fetch-client"
+      },
+      {
+        "name": "bootstrap",
+        "path": "../node_modules/bootstrap/dist",
+        "main": "js/bootsrap.bundle.min",
+        "deps": [
+          "jquery"
+        ],
+        "exports": "jquery",
+        "resources": [
+          "css/bootstrap.css"
+        ]
+
       }
     ],
   "testFramework": {

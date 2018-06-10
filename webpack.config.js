@@ -89,6 +89,13 @@ module.exports = ({production, server, extractCss, coverage, analyze} = {}) => (
     new ModuleDependenciesPlugin({
       'aurelia-testing': [ './compile-spy', './view-spy' ]
     }),
+    new ProvidePlugin({
+      'Promise': 'bluebird',
+      '$': 'jquery',
+      'jQuery': 'jquery',
+      'window.jQuery': 'jquery',
+      Popper: ['popper.js', 'default'] //add popper js here
+    }),
     new HtmlWebpackPlugin({
       template: 'index.ejs',
       minify: production ? {

@@ -1,5 +1,8 @@
 <template>
-  <div class = "search-box">
-    <input type="text" placeholder="Search by artist" value.bind="input & updateTrigger: 'keyup'" change.trigger="inputChange()" keyup.trigger="inputKeyup()")>
+  <require from="../../bootstrap/css/bootstrap.css"></require>
+  <div>
+    <div>
+          <input class="form-control input-lg" type="text" placeholder="Search by artist" value.bind="input & updateTrigger: 'keyup'" change.trigger="inputChange()" keyup.trigger="inputKeyup()")>
+    </div>
   </div> 
 </template>
