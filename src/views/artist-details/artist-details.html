@@ -1,8 +1,18 @@
 <template>
     <div>
-      bio:
-      ${artistBio}
-      albums:
+      <div class="col-md-6">
+          <div class="media">
+            <div class="media-left">
+                <img class="media-object" src="${artist.image[5]['#text']}" alt="...">
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">${artist.name}</h4>
+                ${artist.bio.summary}
+            </div>
+          </div>
+        <button click.delegate="loadPrev()" show.bind="hasPrev()"> Prev </button>  
+        <button click.delegate="loadNext()" show.bind="hasNext()"> Next </button>
+      </div>
       <div class="list-group">
         <li repeat.for="album of albums">
           <button type="button" class="list-group-item list-group-item-action ${$parent.album.name === selectedAlbum ? 'active' : ''}" click.delegate="$parent.select(album.name)"> ${album.name} </button>

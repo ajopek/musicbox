@@ -23,7 +23,7 @@ export class ArtistDetails {
     await this.api.getArtistBio(params.name)
                  .then(response => response.json())
                  .then(data => {
-                   this.artistBio = data.artist.bio.summary;
+                   this.artist = data.artist;
                  });
     await this.api.getArtistAlbums(params.name)
                  .then(response => response.json())
