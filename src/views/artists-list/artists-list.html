@@ -6,7 +6,9 @@
         <a route-href="route: artists; params.bind: {name:artist.name}">
             <h4>${artist.name} </h4>
         </a>
-    </li>  
+    </li>
+    <button click.delegate="loadPrev()" show.bind="hasPrev()"> Prev </button>  
+    <button click.delegate="loadNext()" show.bind="hasNext()"> Next </button>
   </div>
   <div if.bind="awaitingResults">
       Loading ...

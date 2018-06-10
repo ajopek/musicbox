@@ -1,11 +1,11 @@
 import {HttpClient, json} from 'aurelia-fetch-client';
 
 let httpClient = new HttpClient();
-let apiKey = '9509f7bbf1f838f74b0da8bf97193ae4';
+let apiKey = '';
 
 export class LastFmAPI {
-  getArtists(name) {
-    return httpClient.fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=${name}&api_key=${apiKey}&format=json`);
+  getArtists(name, page) {
+    return httpClient.fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.search&page=${page}&artist=${name}&api_key=${apiKey}&format=json`);
   }
 
   getArtistAlbums(name) {

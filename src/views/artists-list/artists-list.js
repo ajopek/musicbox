@@ -13,17 +13,35 @@ export class ArtistsList {
     this.router;
   }
 
-  loadArtists() {
+  loadArtists(page) {
     this.listLoaded = false;
     this.awaitingResults = true;
-    this.api.getArtists(this.searchPhrase)
+    this.api.getArtists(this.searchPhrase, page)
                  .then(response => response.json())
                  .then(data => {
+                   this.lastResult = data.results;
                    this.artistsList = data.results.artistmatches.artist;
+                   this.currentPage = page;
                    this.awaitingResults = false;
                    this.listLoaded = true;
-                   console.log(this.artistsList[1]);
+                   console.log(data.results['opensearch:itemsPerPage']);
                  });
+  }
+
+  hasNext() {
+    return ((this.lastResult['opensearch:itemsPerPage'] * this.currentPage) < this.lastResult['opensearch:totalResults']);
+  }
+
+  hasPrev() {
+    return (this.currentPage > 1);
+  }
+
+  loadNext() {
+    this.loadArtists(this.currentPage + 1);
+  }
+
+  loadPrev() {
+    this.loadArtists(Math.max(1, this.currentPage - 1));
   }
 
   attached() {
@@ -31,7 +49,7 @@ export class ArtistsList {
       message => {
         this.searchPhrase = message;
         //console.log(this.searchPhrase);
-        this.loadArtists();
+        this.loadArtists(1);
       }
     );
   }
