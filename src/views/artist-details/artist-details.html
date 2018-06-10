@@ -1,0 +1,15 @@
+<template>
+    <div>
+      bio:
+      ${artistBio}
+      albums:
+      <li repeat.for="album of albums">
+        <button click.delegate="$parent.select(album.name)"> ${album.name} </button>
+        <div show.bind="album.name === selectedAlbum">
+          Moar album info.
+        </div>
+      </li>
+    </div>
+    <button click.delegate="back()"> Back to search </button>
+</template>
+  

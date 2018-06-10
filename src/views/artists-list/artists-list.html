@@ -1,9 +1,11 @@
 <template>
   <requre  from="./loader.css"></requre> 
 
-  <div if.bind="listLoaded"
+  <div if.bind="listLoaded">
     <li repeat.for="artist of artistsList">
-      <span> ${artist.name} </span>
+        <a route-href="route: artists; params.bind: {name:artist.name}">
+            <h4>${artist.name} </h4>
+        </a>
     </li>  
   </div>
   <div if.bind="awaitingResults">

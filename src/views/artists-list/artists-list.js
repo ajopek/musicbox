@@ -1,14 +1,16 @@
 import {inject} from 'aurelia-framework';
 import {LastFmAPI} from '../../last-fm-api';
 import {EventAggregator} from 'aurelia-event-aggregator';
+import {Router} from 'aurelia-router';
 
-@inject(LastFmAPI, EventAggregator)
+@inject(LastFmAPI, EventAggregator, Router)
 export class ArtistsList {
-  constructor(api, eventAggregator) {
+  constructor(api, eventAggregator, router) {
     this.api = api;
     this.ea = eventAggregator;
     this.artistsList = [];
     this.awaitingResults = false;
+    this.router;
   }
 
   loadArtists() {
