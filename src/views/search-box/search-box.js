@@ -1,7 +1,8 @@
 import {LastFmAPI} from '.../../last-fm-api';
-import {inject} from 'aurelia-framework';
+import {inject, singleton} from 'aurelia-framework';
 import {EventAggregator} from 'aurelia-event-aggregator';
 
+@singleton()
 @inject(EventAggregator)
 export class SearchBox {
   constructor(eventAggregator) {

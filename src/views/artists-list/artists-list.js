@@ -1,8 +1,9 @@
-import {inject} from 'aurelia-framework';
+import {inject, singleton} from 'aurelia-framework';
 import {LastFmAPI} from '../../last-fm-api';
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {Router} from 'aurelia-router';
 
+@singleton()
 @inject(LastFmAPI, EventAggregator, Router)
 export class ArtistsList {
   constructor(api, eventAggregator, router) {
